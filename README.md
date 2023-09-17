@@ -1,4 +1,4 @@
-## Banking System
+## Banking System ( Coding Test Challange )
 
 ## Installation
 
@@ -7,9 +7,9 @@ Clone this repository first
 ```bash
 https://github.com/Khokon-Chandra/banking-system.git
 ````
-Composer Update
+Composer Install
 ````bash
-composer update
+composer install
 ````
 
 copy .env.example as .env
@@ -24,7 +24,6 @@ DB_DATABASE=banking_system
 DB_USERNAME=root
 DB_PASSWORD=
 ```
-``
 Run migration command
 ```bash
 php artisan migrate --seed
@@ -33,11 +32,8 @@ Run project
 ```bash
 php artisan serve
 ````
-Email Address :
+Email Address & Password :
 ```bash 
 admin@admin.com
-````
-password :
-```bash 
 12345678````
 
