@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +30,21 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
-    Route::resource('users', UserController::class);
+    Route::resource('users', UserController::class)->only('index', 'store', 'create');
+
+    Route::controller(TransactionController::class)->name('transactions.')->prefix('transactions')->group(function () {
+
+        Route::get('/', 'index')->name('index');
+
+        Route::get('/deposit', 'deposit')->name('deposit');
+        Route::get('/deposit/create', 'createDeposit')->name('deposit.create');
+        Route::post('/deposit', 'storeDeposit')->name('deposit.store');
+
+
+        Route::get('/withdrawal', 'withdrawal')->name('withdrawal');
+        Route::get('/withdrawal/create', 'createWithdrawal')->name('withdrawal.create');
+        Route::post('/withdrawal', 'storeWithdrawal')->name('withdrawal.store');
+    });
 });
 
 require __DIR__ . '/auth.php';

@@ -1,6 +1,6 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-        <a href="index.html" class="app-brand-link">
+        <a href="{{ route('dashboard') }}" class="app-brand-link">
             <span class="app-brand-logo demo">
                 <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -40,5 +40,30 @@
                 <div data-i18n="Page 2">{{ __('Users') }}</div>
             </a>
         </li>
+
+
+
+        <li class="menu-item {{ request()->routeIs('transactions.index') ? 'active' : '' }}">
+            <a href="{{ route('transactions.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Page 2">{{ __('All Transaction') }}</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ request()->routeIs('transactions.deposit') ? 'active' : '' }}">
+            <a href="{{ route('transactions.deposit') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Page 2">{{ __('Deposit') }}</div>
+            </a>
+        </li>
+
+
+        <li class="menu-item {{ request()->routeIs('transactions.withdrawal') ? 'active' : '' }}">
+            <a href="{{ route('transactions.withdrawal') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Page 2">{{ __('Withdrawal') }}</div>
+            </a>
+        </li>
+
     </ul>
 </aside>
