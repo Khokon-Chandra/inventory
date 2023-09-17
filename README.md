@@ -1,4 +1,6 @@
-## Banking System ( Coding Test Challange )
+## Banking System ( Coding Test Challenge )
+
+### PHP-Laravel Application
 
 ## Installation
 
