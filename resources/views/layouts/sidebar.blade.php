@@ -34,8 +34,8 @@
                 <div data-i18n="Page 1">{{ __('Dashboard') }}</div>
             </a>
         </li>
-        <li class="menu-item">
-            <a href="{{ route('users.index') }}" class="menu-link {{ request()->routeIs('users.index') ? 'active' : '' }}">
+        <li class="menu-item {{ request()->routeIs('users.index') ? 'active' : '' }}">
+            <a href="{{ route('users.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-users"></i>
                 <div data-i18n="Page 2">{{ __('Users') }}</div>
             </a>
