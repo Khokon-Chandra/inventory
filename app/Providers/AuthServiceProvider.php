@@ -4,6 +4,10 @@ namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
+use Spatie\Permission\Models\Permission;
+
+
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -21,6 +25,19 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Gate::before(function ( $user, $permission) {
+
+            if ($user->hasRole('admin') ?? false) {
+                return true;
+            }
+
+            $permissions = Permission::where('name', $permission)->get();
+
+            if ($permissions->count() == 0) {
+                Permission::create(['name' => $permission]);
+            }
+
+            return $user->hasPermissionTo($permission);
+        });
     }
 }
