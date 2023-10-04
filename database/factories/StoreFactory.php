@@ -2,8 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Store;
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,14 +14,12 @@ class StoreFactory extends Factory
      *
      * @return array<string, mixed>
      */
-
-    protected $model = Store::class;
-    
     public function definition(): array
     {
         return [
-            'name' => $this->faker->words,
-            'description' => $this->faker->sentence,
+            'company_id' => rand(1,10),
+            'name'        => $this->faker->company(),
+            'address'     => $this->faker->address(),
         ];
     }
 }

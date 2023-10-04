@@ -13,9 +13,13 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('company_id');
             $table->foreignId('store_id');
             $table->foreignId('customer_id');
             $table->float('total_price');
+            $table->float('paid')->default(0);
+            $table->float('due')->default(0);
+            $table->foreignId('created_by')->nullable();
             $table->timestamps();
         });
     }

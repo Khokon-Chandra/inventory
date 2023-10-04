@@ -2,7 +2,7 @@
     <div class="app-brand demo">
         <a href="{{ route('dashboard') }}" class="app-brand-link">
             <span class="app-brand-logo demo"></span>
-            <span class="app-brand-text demo menu-text fw-bold">Khokon</span>
+            <span class="app-brand-text demo menu-text fw-bold">lOgO</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -23,7 +23,7 @@
         </li> 
 
 
-
+{{-- 
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-package"></i>
@@ -34,7 +34,7 @@
                     <a href="#" class="menu-link">Add New</a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
         
         
         
@@ -96,7 +96,7 @@
 
 
          {{-- Report --}}
-         <li class="menu-item {{ activeRoute(['reports.stock','reports.stock.pdf']) ? 'open' : '' }}">
+         <li class="menu-item {{ activeRoute(['reports.stock','reports.sale']) ? 'open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-books"></i>
                 <div data-i18n="Report">{{ __('Report') }}</div>
@@ -109,14 +109,16 @@
                     </a>
                 </li>
 
-                {{-- <li class="menu-item {{ activeRoute(['transfers.create']) ? 'active' : '' }}">
-                    <a href="{{ route('transfers.create') }}" class="menu-link">
-                        <div data-i18n="Transfer">{{ __('New Transfer') }}</div>
+                <li class="menu-item {{ activeRoute(['reports.sale']) ? 'active' : '' }}">
+                    <a href="{{ route('reports.sale') }}" class="menu-link">
+                        <div data-i18n="Sales">{{ __('Sales Report') }}</div>
                     </a>
-                </li> --}}
+                </li>
                
 
             </ul>
+
+            
         </li>
 
 
@@ -156,6 +158,16 @@
 
             </ul>
         </li>
+
+        {{-- Backup Dataabase --}}
+
+
+        <li class="menu-item {{ request()->routeIs('backups.index') ? 'active' : '' }}">
+            <a href="{{ route('backups.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-settings"></i>
+                <div data-i18n="Page 1">{{ __('Backup') }}</div>
+            </a>
+        </li> 
 
     </ul>
 </aside>

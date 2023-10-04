@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BackupController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
@@ -36,6 +37,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
+    Route::resource('backups',BackupController::class);
+
 
     Route::resource('users', UserController::class)->only('index', 'store', 'create');
 
@@ -52,6 +55,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('reports')->name('reports.')->controller(ReportController::class)->group(function(){
         Route::get('stocks','stock')->name('stock');
         Route::get('stock_in_pdf','stockPdf')->name('stock.pdf');
+
+        Route::get('sales_report','saleReport')->name('sale');
+        Route::get('sales_report_pdf','saleReportPdf')->name('sale.pdf');
     });
 });
 

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('company_id');
             $table->foreignId('store_id');
             $table->foreignId('product_id');
             $table->integer('opening_stock');

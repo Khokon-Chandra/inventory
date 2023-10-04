@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Store;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,12 +17,17 @@ class StockFactory extends Factory
      */
     public function definition(): array
     {
+        $company_id = rand(1,10);
+
+        $store_id  = Store::where('company_id',$company_id)->inRandomOrder()->first()->id;
+
         return [
-            'store_id' => rand(1,10),
-            'product_id' => rand(1, 200),
+            'company_id'    => $company_id,
+            'store_id'      => $store_id,
+            'product_id'    => rand(1, 200),
             'opening_stock' => rand(10, 100),
             'closing_stock' => rand(10,100),
-            'date' => $this->faker->dateTimeThisYear()
+            'date'          => $this->faker->dateTimeThisYear()
         ];
     }
 }

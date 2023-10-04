@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('transfers', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('company_id');
             $table->foreignId('from_store');
             $table->foreignId('to_store');
-            $table->foreignId('product_id');
-            $table->integer('quantity');
             $table->string('status')->comment('pending, confirmed');
             $table->foreignId('created_by')->nullable()->comment('user id');
             $table->timestamps();

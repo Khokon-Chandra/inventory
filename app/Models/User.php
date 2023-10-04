@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Enums\AccountTypeEnum;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Traits\HasRoles;
 
 
@@ -47,4 +49,20 @@ class User extends Authenticatable
         'password' => 'hashed',
         'account_type' => AccountTypeEnum::class
     ];
+
+
+
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
+    }
+
+
 }

@@ -9,5 +9,9 @@ class TransferItem extends Model
 {
     use HasFactory;
 
-    
+    protected $fillable = [
+        'transfer_id',
+        'product_id',
+        'quantity',
+    ];
 }

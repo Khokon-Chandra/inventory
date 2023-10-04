@@ -5,7 +5,7 @@
         <a href="{{ route('reports.stock.pdf') }}" class="btn btn-primary">+ Generate PDF</a>
     </div>
     <div class="card">
-        <div class="card-header">Stock Information</div>
+        <div class="card-header fs-bold">Stock Report</div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table">
@@ -14,8 +14,8 @@
                             <th>SL</th>
                             <th>Store name</th>
                             <th>Product</th>
-                            <th>Opening Quantity</th>
-                            <th>Closing Quantity</th>
+                            <th>Stock Status</th>
+                            <th>Quantity</th>
                             <th>Date</th>
                         </tr>
                     </thead>
@@ -25,7 +25,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->store_name }}</td>
                                 <td>{{ $item->product_name }}</td>
-                                <td>{{ $item->opening_stock }}</td>
+                                <td><button class="btn btn-sm btn-outline-primary">In stock</button></td>
                                 <td>{{ $item->closing_stock }}</td>
                                 <td>{{ $item->date }}</td>
                             </tr>
