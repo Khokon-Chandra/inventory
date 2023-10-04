@@ -7,6 +7,7 @@
     <div class="card">
         <div class="card-header">Product Information</div>
         <div class="card-body">
+           <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
@@ -42,6 +43,7 @@
                   
                 </tbody>
             </table>
+           </div>
             <div class="d-flex justify-content-end mt-3">
                 {{ $dataset->links() }}
             </div>

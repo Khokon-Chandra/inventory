@@ -7,35 +7,37 @@
     <div class="card">
         <div class="card-header">Category Information</div>
         <div class="card-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>SL</th>
-                        <th>Name</th>
-                        <th>Date</th>
-                        <th class="text-end">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($dataset as $item)
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->name }}</td>
-                            <td>{{ $item->created_at }}</td>
-                            <td class="text-end">
-                                <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                            </td>
+                            <th>SL</th>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th class="text-end">Action</th>
                         </tr>
-                    @empty
-                        <tr>
-                            <th class="text-center" colspan="7">No record Found</th>
-                        </tr>
-                    @endforelse
-                        
-                  
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @forelse ($dataset as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->name }}</td>
+                                <td>{{ $item->created_at }}</td>
+                                <td class="text-end">
+                                    <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <th class="text-center" colspan="7">No record Found</th>
+                            </tr>
+                        @endforelse
+                            
+                      
+                    </tbody>
+                </table>
+            </div>
             <div class="d-flex justify-content-end mt-3">
                 {{ $dataset->links() }}
             </div>

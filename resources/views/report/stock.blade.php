@@ -7,36 +7,38 @@
     <div class="card">
         <div class="card-header">Stock Information</div>
         <div class="card-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>SL</th>
-                        <th>Store name</th>
-                        <th>Product</th>
-                        <th>Opening Quantity</th>
-                        <th>Closing Quantity</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($dataset as $item)
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->store_name }}</td>
-                            <td>{{ $item->product_name }}</td>
-                            <td>{{ $item->opening_stock }}</td>
-                            <td>{{ $item->closing_stock }}</td>
-                            <td>{{ $item->date }}</td>
+                            <th>SL</th>
+                            <th>Store name</th>
+                            <th>Product</th>
+                            <th>Opening Quantity</th>
+                            <th>Closing Quantity</th>
+                            <th>Date</th>
                         </tr>
-                    @empty
-                        <tr>
-                            <th class="text-center" colspan="7">No record Found</th>
-                        </tr>
-                    @endforelse
-                        
-                  
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @forelse ($dataset as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->store_name }}</td>
+                                <td>{{ $item->product_name }}</td>
+                                <td>{{ $item->opening_stock }}</td>
+                                <td>{{ $item->closing_stock }}</td>
+                                <td>{{ $item->date }}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <th class="text-center" colspan="7">No record Found</th>
+                            </tr>
+                        @endforelse
+                            
+                      
+                    </tbody>
+                </table>
+            </div>
             <div class="d-flex justify-content-end mt-3">
                 {{ $dataset->links() }}
             </div>
