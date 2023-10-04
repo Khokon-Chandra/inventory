@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\DatabaseExport;
 use App\Models\Backup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
@@ -32,16 +33,18 @@ class BackupController extends Controller
      */
     public function store(Request $request)
     {
-        // lock all tables
-        DB::unprepared('FLUSH TABLES WITH READ LOCK;');
 
-        // run the artisan command to backup the db using the package I linked to
-        Artisan::call('backup:run', ['--only-db' => true]);  // something like this
+        return (new DatabaseExport(1000))->download('database.csv');
+        // // lock all tables
+        // DB::unprepared('FLUSH TABLES WITH READ LOCK;');
 
-        // unlock all tables
-        DB::unprepared('UNLOCK TABLES');
+        // // run the artisan command to backup the db using the package I linked to
+        // Artisan::call('backup:run', ['--only-db' => true]);  // something like this
 
-        return redirect()->route('backups.index');
+        // // unlock all tables
+        // DB::unprepared('UNLOCK TABLES');
+
+        // return redirect()->route('backups.index');
     }
 
     /**
