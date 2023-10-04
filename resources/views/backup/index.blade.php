@@ -17,6 +17,7 @@
                     <tr>
                         <th>SL</th>
                         <th>Date</th>
+                        <th>File</th>
                         <th>File Size</th>
                         <th class="text-end">Action</th>
                     </tr>
@@ -27,8 +28,8 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->created_at }}</td>
                             <td>{{ $item->source }}</td>
+                            <td>{{ round(Storage::disk('backup')->size($item->source)/1024)}} KB</td>
                             <td class="text-end">
-                                <a href="#" class="btn btn-sm btn-primary">Edit</a>
                                 <a href="#" class="btn btn-sm btn-danger">Delete</a>
                             </td>
                         </tr>
