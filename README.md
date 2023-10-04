@@ -1,4 +1,4 @@
-## Banking System ( Coding Test Challenge )
+## Inventory Management System ( Coding Test Challenge )
 
 ### PHP-Laravel Application
 
@@ -7,7 +7,7 @@
 Clone this repository first
 
 ```bash
-https://github.com/Khokon-Chandra/banking-system.git
+https://github.com/Khokon-Chandra/inventory.git
 ````
 Composer Install
 ````bash
@@ -22,7 +22,7 @@ Configure database connection
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=banking_system
+DB_DATABASE=inventory
 DB_USERNAME=root
 DB_PASSWORD=
 ```
@@ -37,5 +37,6 @@ php artisan serve
 Email Address & Password :
 ```bash 
 admin@admin.com
-12345678````
+12345678
+```
 
