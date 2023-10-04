@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Backup;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 
 class BackupController extends Controller
 {
@@ -12,7 +14,7 @@ class BackupController extends Controller
      */
     public function index()
     {
-        return view('backup.index',[
+        return view('backup.index', [
             'dataset' => Backup::paginate(),
         ]);
     }
@@ -30,7 +32,16 @@ class BackupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // lock all tables
+        DB::unprepared('FLUSH TABLES WITH READ LOCK;');
+
+        // run the artisan command to backup the db using the package I linked to
+        Artisan::call('backup:run', ['--only-db' => true]);  // something like this
+
+        // unlock all tables
+        DB::unprepared('UNLOCK TABLES');
+
+        return redirect()->route('backups.index');
     }
 
     /**
