@@ -11,7 +11,8 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
-    @vite('resources/css/app.css')
+@vite('resources/css/app.css')
+
 </head>
 
 <body class="antialiased">
@@ -33,7 +34,7 @@
         <div class="bg-gray-200 dark:bg-gray-800" style="height: 50vh;display:flex;flex-direction:column;align-items:center;width:80%">
             <h3 class="dark:text-gray-300" style="text-align: center!important;width:100%;font-size:2rem;margin-top:3rem">Welcome ! Please Login to visit
                 Application</h3>
-            <h3 class="dark:text-gray-300 text-2xl">admin@admin.com 12345678</h3>
+            <h4 class="dark:text-gray-300 text-1xl">E-Mail: admin@admin.com <br>Password: 12345678</h4>
 
         </div>
     </div>
